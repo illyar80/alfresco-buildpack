@@ -29,7 +29,7 @@ fi
 
 echo "=====> Downloading Java Buildpack"
 
-BUILDPACK_JAVA_DIR=$(mktemp -t buildpackjava)
+BUILDPACK_JAVA_DIR=$(mktemp -t buildpackjavaXXXXX)
 rm -rf $BUILDPACK_JAVA_DIR
 BUILDPACK_JAVA_URL=https://github.com/heroku/heroku-buildpack-java/archive/master.tar.gz
 
