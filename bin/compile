@@ -56,10 +56,9 @@ cd $BUILD_DIR
 echo -n "=====> Downloading Tomcat..."
 
 TOMCAT_URL="http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.42/bin/apache-tomcat-7.0.42.tar.gz"
-curl --silent --location $TOMCAT_URL | tar xzv
+curl --silent --location $TOMCAT_URL | tar xz
 mv $BUILD_DIR/apache-tomcat-7.0.42 $BUILD_DIR/tomcat
 CATALINA_HOME=$BUILD_DIR/tomcat
-
 
 echo "done"
 
@@ -67,7 +66,8 @@ echo -n "=====> Downloading Alfresco..."
 
 ALFRESCO_URL="http://dl.alfresco.com/release/community/4.2.f-build-00012/alfresco-community-4.2.f.zip"
 curl --silent --location $ALFRESCO_URL > $BUILD_DIR/alfresco.zip
-jar xvf $BUILD_DIR/alfresco.zip
+jar xf $BUILD_DIR/alfresco.zip
+rm -f $BUILD_DIR/alfresco.zip
 
 echo "done"
 
