@@ -59,7 +59,7 @@ if [ ! -f "$CACHE_DIR/tomcat.tar.gz" ]; then
   echo "done"
 fi
 
-tar xz "$CACHE_DIR/tomcat.tar.gz"
+tar xzf $CACHE_DIR/tomcat.tar.gz
 #mv "$BUILD_DIR/apache-tomcat-7.0.42" "$BUILD_DIR/tomcat"
 CATALINA_HOME=$BUILD_DIR/tomcat
 
