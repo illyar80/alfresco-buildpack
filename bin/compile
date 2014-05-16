@@ -34,7 +34,7 @@ rm -rf $BUILDPACK_JAVA_DIR
 BUILDPACK_JAVA_URL=https://github.com/heroku/heroku-buildpack-java/archive/master.tar.gz
 
 mkdir -p "$BUILDPACK_JAVA_DIR"
-curl -s "$BUILDPACK_JAVA_URL" | tar xvz -C "$BUILDPACK_JAVA_DIR" >/dev/null 2>&1
+curl -s -L "$BUILDPACK_JAVA_URL" | tar xvz -C "$BUILDPACK_JAVA_DIR" >/dev/null 2>&1
 BUILDPACK_JAVA_DIR=$BUILDPACK_JAVA_DIR/heroku-buildpack-java-master
 
 # we'll get errors later if these don't exist
