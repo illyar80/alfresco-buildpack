@@ -35,11 +35,10 @@ BUILDPACK_JAVA_URL=https://github.com/heroku/heroku-buildpack-java/archive/maste
 
 mkdir -p "$BUILDPACK_JAVA_DIR"
 curl -s "$BUILDPACK_JAVA_URL" | tar xvz -C "$BUILDPACK_JAVA_DIR" >/dev/null 2>&1
-cd $dir
+cd $BUILDPACK_JAVA_DIR
 
 # we'll get errors later if these don't exist
 chmod -f +x $BUILDPACK_JAVA_DIR/bin/{detect,compile,release} || true
-
 
 $BUILDPACK_JAVA_DIR/bin/compile $1 $2 $3
 
@@ -50,7 +49,6 @@ fi
 if [ -x $BUILDPACK_JAVA_DIR/bin/release ]; then
   $BUILDPACK_JAVA_DIR/bin/release $1 > $1/java_pack_release.out
 fi
-
 
 # change to build dir
 cd $BUILD_DIR
