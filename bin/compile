@@ -13,14 +13,16 @@ ENV_DIR=$3
 
 # create pom.xml if doesn't exist
 if [ ! -f ${BUILD_DIR}/pom.xml ]; then
-<<EOF
+
+cat <<EOF > ${BUILD_DIR}/pom.xml
 <project>
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.mycompany.app</groupId>
   <artifactId>my-app</artifactId>
   <version>1</version>
 </project>
-EOF > ${BUILD_DIR}/pom.xml
+EOF
+
 fi
 
 # call java buildpack
