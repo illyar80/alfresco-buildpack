@@ -61,5 +61,5 @@ if [ ! -f "$CACHE_DIR/bundle.tar.gz" ]; then
 fi
 
 tar xzf $CACHE_DIR/bundle.tar.gz
-mv "$BUILD_DIR/alfresco-community-4.2.b" "$BUILD_DIR/alfresco"
+mv "$BUILD_DIR/alfresco-community-5.0.a" "$BUILD_DIR/alfresco"
 
