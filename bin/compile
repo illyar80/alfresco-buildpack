@@ -60,8 +60,9 @@ if [ ! -f "$CACHE_DIR/bundle.tar.gz" ]; then
   curl --silent --location $BUNDLE_URL > "$CACHE_DIR/bundle.tar.gz"
   echo "done"
 fi
-ls -l $CACHE_DIR
+
 cd $CACHE_DIR
+ls -l $CACHE_DIR
 tar xzf bundle.tar.gz
 ls -l $CACHE_DIR
 ls -l $BUILD_DIR
