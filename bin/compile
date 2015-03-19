@@ -30,7 +30,7 @@ echo "=====> Downloading Java Buildpack"
 
 BUILDPACK_JAVA_DIR=$(mktemp -t buildpackjavaXXXXX)
 rm -rf $BUILDPACK_JAVA_DIR
-BUILDPACK_JAVA_URL=https://github.com/heroku/heroku-buildpack-java/archive/master.tar.gz
+BUILDPACK_JAVA_URL=https://download.run.pivotal.io/openjdk/trusty/x86_64/openjdk-1.8.0_40.tar.gz
 
 mkdir -p "$BUILDPACK_JAVA_DIR"
 curl -s -L "$BUILDPACK_JAVA_URL" | tar xvz -C "$BUILDPACK_JAVA_DIR" >/dev/null 2>&1
