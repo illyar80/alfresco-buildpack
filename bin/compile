@@ -60,7 +60,8 @@ if [ ! -f "$CACHE_DIR/bundle.tar.gz" ]; then
   curl --silent --location $BUNDLE_URL > "$CACHE_DIR/bundle.tar.gz"
   echo "done"
 fi
-
+ls -l $CACHE_DIR
 tar xzf $CACHE_DIR/bundle.tar.gz
+ls -l $CACHE_DIR
 mv "$BUILD_DIR/alfresco-community-5.0.a" "$BUILD_DIR/alfresco"
 
