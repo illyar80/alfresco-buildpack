@@ -39,7 +39,7 @@ BUILDPACK_JAVA_DIR=$BUILDPACK_JAVA_DIR/heroku-buildpack-java-master
 # we'll get errors later if these don't exist
 chmod -f +x $BUILDPACK_JAVA_DIR/bin/{detect,compile,release} || true
 
-$BUILDPACK_JAVA_DIR/bin/compile $1 $2 $3
+# $BUILDPACK_JAVA_DIR/bin/compile $1 $2 $3
 
 if [ $? != 0 ]; then
   exit 1
