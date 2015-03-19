@@ -61,7 +61,9 @@ if [ ! -f "$CACHE_DIR/bundle.tar.gz" ]; then
   echo "done"
 fi
 ls -l $CACHE_DIR
-tar xzf $CACHE_DIR/bundle.tar.gz
+cd $CACHE_DIR
+tar xzf bundle.tar.gz
 ls -l $CACHE_DIR
+ls -l $BUILD_DIR
 mv "$BUILD_DIR/alfresco-community-5.0.a" "$BUILD_DIR/alfresco"
 
