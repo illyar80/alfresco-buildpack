@@ -57,6 +57,7 @@ if [ ! -f "$CACHE_DIR/bundle.tar.gz" ]; then
   echo -n "=====> Downloading Alfresco Bundle..."
   mkdir -p $CACHE_DIR
   BUNDLE_URL="https://s3.amazonaws.com/wabson-alfresco/alfresco-community-tomcat7-4.2.b-linux-i686.tar.gz"
+  #BUNDLE_URL=""
   curl --silent --location $BUNDLE_URL > "$CACHE_DIR/bundle.tar.gz"
   echo "done"
 fi
@@ -66,5 +67,5 @@ ls -l $CACHE_DIR
 tar xzf bundle.tar.gz
 ls -l $CACHE_DIR
 ls -l $BUILD_DIR
-mv "$BUILD_DIR/alfresco-community-5.0.a" "$BUILD_DIR/alfresco"
+mv "$BUILD_DIR/alfresco-community-4.2.b" "$BUILD_DIR/alfresco"
 
