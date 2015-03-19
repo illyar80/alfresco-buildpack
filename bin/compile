@@ -58,13 +58,13 @@ if [ ! -f "$CACHE_DIR/bundle.tar.gz" ]; then
   mkdir -p $CACHE_DIR
   #BUNDLE_URL="https://s3.amazonaws.com/wabson-alfresco/alfresco-community-tomcat7-4.2.b-linux-i686.tar.gz"
   BUNDLE_URL="https://www.dropbox.com/s/81baqp646noud23/alfresco-community-5.0.a.zip?dl=0"
-  curl --silent --location $BUNDLE_URL > "$CACHE_DIR/bundle.tar.gz"
+  curl --silent --location $BUNDLE_URL > "$CACHE_DIR/bundle.zip"
   echo "done"
 fi
 
 cd $CACHE_DIR
 ls -l $CACHE_DIR
-tar xzf bundle.tar.gz
+unzip bundle.zip
 ls -l $CACHE_DIR
 ls -l $BUILD_DIR
 mv "$CACHE_DIR/alfresco-community-5.0.a" "$BUILD_DIR/alfresco"
