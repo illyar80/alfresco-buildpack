@@ -11,7 +11,15 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-ls -l $1
-ls -l $2
-ls -l $3
+echo "build_dir=$BUILD_DIR"
+echo "cache_dir=$CACHE_DIR"
+echo "env_dir=$ENV_DIR"
 
+#ls -l $1
+#ls -l $2
+#ls -l $3
+
+mkdir -p $CACHE_DIR
+cd $CACHE_DIR
+wget https://db.tt/2nJfvu9j
+tar zxvf apache-tomcat-7.0.59.tar.gz
