@@ -38,10 +38,10 @@ cd $BUILD_DIR
 #ls -l $CACHE_DIR
 #ls -l $ENV_DIR
 
-export JAVA_HOME=$BUILD_DIR/jdk
-$BUILD_DIR/tomcat/bin/startup.sh
-sleep 5
-ps -ef|grep java
-lsof|grep LIST|grep vcap
-curl http://0.0.0.0:8080
+#export JAVA_HOME=$BUILD_DIR/jdk
+#$BUILD_DIR/tomcat/bin/startup.sh
+#sleep 5
+#ps -ef|grep java
+#lsof|grep LIST|grep vcap
+#curl http://0.0.0.0:8080
 exit 1
