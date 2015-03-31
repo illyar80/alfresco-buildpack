@@ -7,7 +7,7 @@ echo "## DETECT ##"
 echo "############"
 echo "Arg1 = $1"
 ls -l $1
-if [ -f $1/jenkins.war ]; then
+if [ -f $1/alfresco.war ]; then
   echo "jenkins.war" && exit 0
 else
   echo "no" && exit 1
