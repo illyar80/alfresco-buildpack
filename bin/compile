@@ -21,11 +21,20 @@ echo "env_dir=$ENV_DIR"
 
 mkdir -p $CACHE_DIR
 cd $CACHE_DIR
+mkdir jdk
+cd jdk
+wget --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/openjdk-1.8.0_40.tar.gz
+tar zxf openjdk-1.8.0_40.tar.gz
+\rm openjdk-1.8.0_40.tar.gz
+mv jdk $BUILD_DIR
 wget --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/apache-tomcat-7.0.59.tar.gz
-tar zxvf apache-tomcat-7.0.59.tar.gz
+tar zxf apache-tomcat-7.0.59.tar.gz
+\rm apache-tomcat-7.0.59.tar.gz
+mv apache-tomcat-7.0.59 $BUILD_DIR
+cd $BUILD_DIR
 
 ls -l $BUILD_DIR
-ls -l $CACHE_DIR
-ls -l $ENV_DIR
+#ls -l $CACHE_DIR
+#ls -l $ENV_DIR
 
 exit 1
