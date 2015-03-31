@@ -7,5 +7,5 @@ config_vars:
   JAVA_HOME: $BUILD_DIR/jdk
   JAVA_OPTS: -Xmx384m -Xss512k -XX:+UseCompressedOops
 default_process_types:
-  web: exec $BUILD_DIR/bin/startup.sh
+  web: $BUILD_DIR/bin/startup.sh
 EOF
