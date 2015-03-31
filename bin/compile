@@ -69,7 +69,8 @@ EOF
 cp $BUILD_DIR/alfresco/web-server/webapps/alfresco.war $BUILD_DIR/tomcat/webapps
 cp $BUILD_DIR/alfresco/web-server/webapps/share.war $BUILD_DIR/tomcat/webapps
 \rm -rf $BUILD_DIR/tomcat/webapps/ROOT
-
+mkdir -p $BUILD_DIR/tomcat/shared/classes
+curl -k -o $BUILD_DIR/tomcat/shared/classes/alfresco-global.properties https://dl.dropboxusercontent.com/u/33282416/alfresco/alfresco-global.properties
 export JAVA_HOME=$BUILD_DIR/jdk
 $BUILD_DIR/tomcat/bin/startup.sh
 sleep 5
