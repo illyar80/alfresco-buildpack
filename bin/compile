@@ -52,10 +52,23 @@ grep shared.loader  $BUILD_DIR/tomcat/conf/catalina.properties
 cp $BUILD_DIR/alfresco/web-server/lib/postgresql-9.3-1101-jdbc41.jar $BUILD_DIR/tomcat/lib/
 mv $BUILD_DIR/tomcat/conf/server.xml $BUILD_DIR/tomcat/conf/server.xml.orig
 curl -l -o $BUILD_DIR/tomcat/conf/server.xml https://dl.dropboxusercontent.com/u/33282416/alfresco/server.xml
-ls -l $BUILD_DIR/tomcat/conf/server.xml
-cat $BUILD_DIR/tomcat/conf/server.xml
-#ls -l $BUILD_DIR/tomcat/lib/
+mv $BUILD_DIR/tomcat/conf/context.xml $BUILD_DIR/tomcat/conf/context.xml.orig
+cat << EOF > $BUILD_DIR/tomcat/conf/context.xml
+<?xml version='1.0' encoding='utf-8'?>
 
+<Context>
+
+    
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+
+    <Valve className="org.apache.catalina.authenticator.SSLAuthenticator" securePagesWithPragma="false" />
+
+</Context>
+EOF
+
+cp $BUILD_DIR/alfresco/web-server/webapps/alfresco.war $BUILD_DIR/tomcat/webapps
+cp $BUILD_DIR/alfresco/web-server/webapps/share.war $BUILD_DIR/tomcat/webapps
+\rm -rf $BUILD_DIR/tomcat/webapps/ROOT
 
 export JAVA_HOME=$BUILD_DIR/jdk
 $BUILD_DIR/tomcat/bin/startup.sh
