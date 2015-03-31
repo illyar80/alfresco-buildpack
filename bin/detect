@@ -6,6 +6,7 @@ echo "############"
 echo "## DETECT ##"
 echo "############"
 echo "Arg1 = $1"
+ls -l $1
 echo "Buildpack Alfresco" && exit 0
 #else
 #  echo "no" && exit 1
