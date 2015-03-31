@@ -26,6 +26,7 @@ cd jdk
 wget --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/openjdk-1.8.0_40.tar.gz
 tar zxf openjdk-1.8.0_40.tar.gz
 \rm openjdk-1.8.0_40.tar.gz
+cd ..
 mv jdk $BUILD_DIR
 wget --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/apache-tomcat-7.0.59.tar.gz
 tar zxf apache-tomcat-7.0.59.tar.gz
