@@ -73,8 +73,8 @@ mkdir -p $BUILD_DIR/tomcat/shared/classes
 curl -k -o $BUILD_DIR/tomcat/shared/classes/alfresco-global.properties https://dl.dropboxusercontent.com/u/33282416/alfresco/alfresco-global.properties
 
 sed -i "s+/opt/alfresco/alf_data+$BUILD_DIR/alfresco/alf-data+" $BUILD_DIR/tomcat/shared/classes/alfresco-global.properties
-cat $BUILD_DIR/tomcat/shared/classes/alfresco-global.properties
-exit 1
+#cat $BUILD_DIR/tomcat/shared/classes/alfresco-global.properties
+#exit 1
 export JAVA_HOME=$BUILD_DIR/jdk
 $BUILD_DIR/tomcat/bin/startup.sh
 sleep 5
