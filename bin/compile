@@ -31,11 +31,16 @@ mv jdk $BUILD_DIR
 wget --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/apache-tomcat-7.0.59.tar.gz
 tar zxf apache-tomcat-7.0.59.tar.gz
 \rm apache-tomcat-7.0.59.tar.gz
-mv apache-tomcat-7.0.59 $BUILD_DIR
+mv apache-tomcat-7.0.59 $BUILD_DIR/tomcat
 cd $BUILD_DIR
 
-ls -l $BUILD_DIR
+#ls -l $BUILD_DIR
 #ls -l $CACHE_DIR
 #ls -l $ENV_DIR
 
+export JAVA_HOME=$BUILD_DIR/jdk
+$BUILD_DIR/tomcat/bin/startup.sh
+sleep 5
+ps -ef|grep java
+curl http://localhost:80
 exit 1
