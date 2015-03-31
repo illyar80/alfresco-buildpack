@@ -77,11 +77,11 @@ curl -k -o $BUILD_DIR/tomcat/shared/classes/alfresco-global.properties https://d
 sed -i "s+/opt/alfresco/alf_data+$BUILD_DIR/alfresco/alf-data+" $BUILD_DIR/tomcat/shared/classes/alfresco-global.properties
 #cat $BUILD_DIR/tomcat/shared/classes/alfresco-global.properties
 #exit 1
-export JAVA_HOME=$BUILD_DIR/jdk
-$BUILD_DIR/tomcat/bin/startup.sh
-sleep 40
+#export JAVA_HOME=$BUILD_DIR/jdk
+#$BUILD_DIR/tomcat/bin/startup.sh
+#sleep 40
 #ps -ef|grep java
-tail -100 $BUILD_DIR/tomcat/logs/catalina.out
+#tail -100 $BUILD_DIR/tomcat/logs/catalina.out
 #ping 10.64.12.104
 #lsof|grep LIST|grep vcap
 #curl http://0.0.0.0:8080
