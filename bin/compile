@@ -76,6 +76,7 @@ $BUILD_DIR/tomcat/bin/startup.sh
 sleep 5
 ps -ef|grep java
 tail -20 $BUILD_DIR/tomcat/logs/catalina.out
+telnet 10.64.12.104 5524
 #lsof|grep LIST|grep vcap
 #curl http://0.0.0.0:8080
 exit 1
