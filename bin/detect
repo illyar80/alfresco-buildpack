@@ -7,7 +7,12 @@ echo "## DETECT ##"
 echo "############"
 echo "Arg1 = $1"
 ls -l $1
-echo "Buildpack Alfresco" && exit 0
+if [ -f $1/jenkins.war ]; then
+  echo "jenkins.war" && exit 0
+else
+  echo "no" && exit 1
+fi
+#echo "Buildpack Alfresco" && exit 0
 #else
 #  echo "no" && exit 1
 #fi
