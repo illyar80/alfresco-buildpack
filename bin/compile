@@ -85,4 +85,5 @@ tail -100 $BUILD_DIR/tomcat/logs/catalina.out
 #ping 10.64.12.104
 #lsof|grep LIST|grep vcap
 #curl http://0.0.0.0:8080
-exit 1
+#exit 1
+exit 0
