@@ -23,3 +23,8 @@ mkdir -p $CACHE_DIR
 cd $CACHE_DIR
 wget --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/apache-tomcat-7.0.59.tar.gz
 tar zxvf apache-tomcat-7.0.59.tar.gz
+
+ls -l $1
+ls -l $2
+ls -l $3
+exit 1
