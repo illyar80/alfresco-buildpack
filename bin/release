@@ -5,7 +5,9 @@ cat <<EOF
 ---
 config_vars:
   JAVA_HOME: $BUILD_DIR/jdk
+  JRE_HOME: $BUILD_DIR/jdk
+  CATALINA_HOME: $BUILD_DIR/tomcat
   JAVA_OPTS: -Xmx384m -Xss512k -XX:+UseCompressedOops
 default_process_types:
-  web: $BUILD_DIR/bin/startup.sh
+  web: $JAVA_HOME/bin/java -classpath $CATALINA_HOME/lib/tomcat-api.jar:$CATALINA_HOME/bin/bootstrap.jar:$CATALINA_HOME/bin/tomcat-juli.jar org.apache.catalina.srtup.Bootstrap start
 EOF
