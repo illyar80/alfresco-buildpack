@@ -42,5 +42,6 @@ export JAVA_HOME=$BUILD_DIR/jdk
 $BUILD_DIR/tomcat/bin/startup.sh
 sleep 5
 ps -ef|grep java
-curl http://localhost:80
+lsof|grep LIST|grep vcap
+curl http://0.0.0.0:80
 exit 1
