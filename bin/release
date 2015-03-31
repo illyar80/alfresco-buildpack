@@ -3,7 +3,7 @@
 
 BUILD_DIR=$1
 
-echo "port=$PORT"
+echo "RELEASE: port=$PORT"
 
 cat <<EOF
 ---
