@@ -50,6 +50,10 @@ sed -i 's+^shared.loader.*+shared.loader=${catalina.base}/shared/classes,${catal
 
 grep shared.loader  $BUILD_DIR/tomcat/conf/catalina.properties
 cp $BUILD_DIR/alfresco/web-server/lib/postgresql-9.3-1101-jdbc41.jar $BUILD_DIR/tomcat/lib/
+mv $BUILD_DIR/tomcat/conf/server.xml $BUILD_DIR/tomcat/conf/server.xml.orig
+curl -l -o $BUILD_DIR/tomcat/conf/server.xml https://dl.dropboxusercontent.com/u/33282416/alfresco/server.xml
+ls -l $BUILD_DIR/tomcat/conf/server.xml
+cat $BUILD_DIR/tomcat/conf/server.xml
 #ls -l $BUILD_DIR/tomcat/lib/
 
 
