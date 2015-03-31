@@ -36,12 +36,21 @@ wget --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresc
 tar zxf apache-tomcat-7.0.59.tar.gz
 \rm apache-tomcat-7.0.59.tar.gz
 mv apache-tomcat-7.0.59 $BUILD_DIR/tomcat
-cd $BUILD_DIR
+#cd $BUILD_DIR
 
-# Configure Tomcat for Alfresco
+# Download Alfresco
+wget --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/alfresco-community-5.0.a.zip
+cd $CACHE_DIR
+unzip alfresco-community-5.0.a.zip
+mv alfresco-community-5.0.a $BUILD_DIR/alfresco
+
+# Configure Tomcat for using Alfresco
 sed -i 's+^shared.loader.*+shared.loader=${catalina.base}/shared/classes,${catalina.base}/shared/lib/*.jar+' $BUILD_DIR/tomcat/conf/catalina.properties
 
 grep shared.loader  $BUILD_DIR/tomcat/conf/catalina.properties
+cp $BUILD_DIR/alfresco/web-server/lib/postgresql-9.3-1101-jdbc41.jar $BUILD_DIR/tomcat/lib/
+
+
 export JAVA_HOME=$BUILD_DIR/jdk
 $BUILD_DIR/tomcat/bin/startup.sh
 sleep 5
