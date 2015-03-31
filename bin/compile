@@ -50,6 +50,7 @@ sed -i 's+^shared.loader.*+shared.loader=${catalina.base}/shared/classes,${catal
 
 grep shared.loader  $BUILD_DIR/tomcat/conf/catalina.properties
 cp $BUILD_DIR/alfresco/web-server/lib/postgresql-9.3-1101-jdbc41.jar $BUILD_DIR/tomcat/lib/
+ls -l $BUILD_DIR/tomcat/lib/
 
 
 export JAVA_HOME=$BUILD_DIR/jdk
