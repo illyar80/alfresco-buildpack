@@ -11,6 +11,8 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
+echo "port=$PORT"
+
 #echo "build_dir=$BUILD_DIR"
 #echo "cache_dir=$CACHE_DIR"
 #echo "env_dir=$ENV_DIR"
@@ -77,7 +79,7 @@ sed -i "s+/opt/alfresco/alf_data+$BUILD_DIR/alfresco/alf-data+" $BUILD_DIR/tomca
 #exit 1
 export JAVA_HOME=$BUILD_DIR/jdk
 $BUILD_DIR/tomcat/bin/startup.sh
-sleep 20
+sleep 40
 #ps -ef|grep java
 tail -100 $BUILD_DIR/tomcat/logs/catalina.out
 #ping 10.64.12.104
