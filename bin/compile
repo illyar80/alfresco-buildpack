@@ -25,21 +25,21 @@ cd $CACHE_DIR
 # Install JDL 1.8.0
 mkdir jdk
 cd jdk
-wget --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/openjdk-1.8.0_40.tar.gz
+wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/openjdk-1.8.0_40.tar.gz
 tar zxf openjdk-1.8.0_40.tar.gz
 \rm openjdk-1.8.0_40.tar.gz
 cd ..
 
 #Install Tomcat 7.0.59
 mv jdk $BUILD_DIR
-wget --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/apache-tomcat-7.0.59.tar.gz
+wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/apache-tomcat-7.0.59.tar.gz
 tar zxf apache-tomcat-7.0.59.tar.gz
 \rm apache-tomcat-7.0.59.tar.gz
 mv apache-tomcat-7.0.59 $BUILD_DIR/tomcat
 #cd $BUILD_DIR
 
 # Download Alfresco
-wget --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/alfresco-community-5.0.a.zip
+wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/alfresco-community-5.0.a.zip
 cd $CACHE_DIR
 unzip -q alfresco-community-5.0.a.zip
 mv alfresco-community-5.0.a $BUILD_DIR/alfresco
