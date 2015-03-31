@@ -43,5 +43,5 @@ $BUILD_DIR/tomcat/bin/startup.sh
 sleep 5
 ps -ef|grep java
 lsof|grep LIST|grep vcap
-curl http://0.0.0.0:80
+curl http://0.0.0.0:8080
 exit 1
