@@ -21,12 +21,16 @@ echo "env_dir=$ENV_DIR"
 
 mkdir -p $CACHE_DIR
 cd $CACHE_DIR
+
+# Install JDL 1.8.0
 mkdir jdk
 cd jdk
 wget --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/openjdk-1.8.0_40.tar.gz
 tar zxf openjdk-1.8.0_40.tar.gz
 \rm openjdk-1.8.0_40.tar.gz
 cd ..
+
+#Install Tomcat 7.0.59
 mv jdk $BUILD_DIR
 wget --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/apache-tomcat-7.0.59.tar.gz
 tar zxf apache-tomcat-7.0.59.tar.gz
@@ -34,14 +38,14 @@ tar zxf apache-tomcat-7.0.59.tar.gz
 mv apache-tomcat-7.0.59 $BUILD_DIR/tomcat
 cd $BUILD_DIR
 
-#ls -l $BUILD_DIR
-#ls -l $CACHE_DIR
-#ls -l $ENV_DIR
+# Configure Tomcat for Alfresco
+sed -i 's+^shared.loader.*+shared.loader=${catalina.base}/shared/classes,${catalina.base}/shared/lib/*.jar+' $BUILD_DIR/tomcat/conf/catalina.properties
 
-#export JAVA_HOME=$BUILD_DIR/jdk
-#$BUILD_DIR/tomcat/bin/startup.sh
-#sleep 5
-#ps -ef|grep java
+grep shared.loader  $BUILD_DIR/tomcat/conf/catalina.properties
+export JAVA_HOME=$BUILD_DIR/jdk
+$BUILD_DIR/tomcat/bin/startup.sh
+sleep 5
+ps -ef|grep java
 #lsof|grep LIST|grep vcap
 #curl http://0.0.0.0:8080
 exit 1
