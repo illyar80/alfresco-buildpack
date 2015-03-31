@@ -43,7 +43,7 @@ wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfr
 cd $CACHE_DIR
 unzip -q alfresco-community-5.0.a.zip
 mv alfresco-community-5.0.a $BUILD_DIR/alfresco
-ls -l $BUILD_DIR/alfresco
+#ls -l $BUILD_DIR/alfresco
 
 # Configure Tomcat for using Alfresco
 sed -i 's+^shared.loader.*+shared.loader=${catalina.base}/shared/classes,${catalina.base}/shared/lib/*.jar+' $BUILD_DIR/tomcat/conf/catalina.properties
