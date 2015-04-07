@@ -1,18 +1,4 @@
 #!/usr/bin/env bash
 # bin/use <build-dir>
 
-#if [ -f $1/Procfile ]; then
-echo "############"
-echo "## DETECT ##"
-echo "############"
-echo "Arg1 = $1"
-ls -l $1
-if [ -f $1/alfresco.war ]; then
-  echo "jenkins.war" && exit 0
-else
-  echo "no" && exit 1
-fi
-#echo "Buildpack Alfresco" && exit 0
-#else
-#  echo "no" && exit 1
-#fi
+exit 0
