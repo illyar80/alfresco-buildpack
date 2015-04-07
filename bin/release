@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
-$BUILD_DIR = $1
+#$BUILD_DIR = $1
 
 cat <<EOF
 ---
 config_vars:
-  PATH: $BUILD_DIR/jdk/bin:/usr/local/bin:/usr/bin:/bin
-  JAVA_HOME: $BUILD_DIR/jdk
-  JRE_HOME: $BUILD_DIR/jdk
-  CATALINA_HOME: $BUILD_DIR/tomcat
-  JAVA_OPTS: -Djava.io.tmpdir=$BUILD_DIR  -Dalpha=bravo -Xmx384m -Xss512k -XX:+UseCompressedOops -Xmx382293 -Xms382293K -XX:MaxPermSize=64M -XX:PermSize=64M -Xss995K -Dhttp.port=$PORT
+  PATH: $1/jdk/bin:/usr/local/bin:/usr/bin:/bin
+  JAVA_HOME: $1/jdk
+  JRE_HOME: $1/jdk
+  CATALINA_HOME: $1/tomcat
+  JAVA_OPTS: -Djava.io.tmpdir=$1  -Dalpha=bravo -Xmx384m -Xss512k -XX:+UseCompressedOops -Xmx382293 -Xms382293K -XX:MaxPermSize=64M -XX:PermSize=64M -Xss995K -Dhttp.port=$PORT
 default_process_types:
   web: $CATALINA_HOME/bin/catalina.sh start
 EOF
