@@ -4,10 +4,12 @@
 cat <<EOF
 ---
 config_vars:
+  PATH: /app/.jdk/bin:/usr/local/bin:/usr/bin:/bin
   JAVA_HOME: $BUILD_DIR/jdk
   JRE_HOME: $BUILD_DIR/jdk
   CATALINA_HOME: $BUILD_DIR/tomcat
   JAVA_OPTS: -Xmx384m -Xss512k -XX:+UseCompressedOops
 default_process_types:
-  web: $JAVA_HOME/bin/java -Dhttp.port=60000 -classpath $CATALINA_HOME/lib/tomcat-api.jar:$CATALINA_HOME/bin/bootstrap.jar:$CATALINA_HOME/bin/tomcat-juli.jar org.apache.catalina.srtup.Bootstrap start
+  web: JAVA_HOME=$PWD/.java-buildpack/open_jdk_jre JAVA_OPTS="-Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.sh -Xmx382293K
+ -Xms382293K -XX:MaxPermSize=64M -XX:PermSize=64M -Xss995K -Dalpha=bravo -Dhttp.port=$PORT" $PWD/.java-buildpack/tomcat/bin/catalina.sh run
 EOF
