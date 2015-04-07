@@ -10,5 +10,5 @@ config_vars:
   CATALINA_HOME: $BUILD_DIR/tomcat
   JAVA_OPTS: -Djava.io.tmpdir=$BUILD_DIR  -Dalpha=bravo -Xmx384m -Xss512k -XX:+UseCompressedOops -Xmx382293 -Xms382293K -XX:MaxPermSize=64M -XX:PermSize=64M -Xss995K -Dhttp.port=$PORT
 default_process_types:
-  web: $CATALINA_HOME/bin/catalina.sh run
+  web: $CATALINA_HOME/bin/catalina.sh start
 EOF
