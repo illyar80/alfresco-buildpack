@@ -8,7 +8,7 @@ config_vars:
   JAVA_HOME: /app/jdk
   JRE_HOME: /app/jdk
   CATALINA_HOME: /app/tomcat
-  JAVA_OPTS: -Djava.io.tmpdir=$TMPDIR  -Dalpha=bravo -Xmx384m -Xss512k -XX:+UseCompressedOops -Xmx382293 -Xms382293K -XX:MaxPermSize=64M -XX:PermSize=64M -Xss995K -Dhttp.port=$PORT
+  JAVA_OPTS: -Djava.io.tmpdir=/tmp  -Dalpha=bravo -Xmx384m -Xss512k -XX:+UseCompressedOops -Xmx382293 -Xms382293K -XX:MaxPermSize=64M -XX:PermSize=64M -Xss995K -Dhttp.port=$PORT
 default_process_types:
   web: /app/tomcat/bin/catalina.sh run
 EOF
