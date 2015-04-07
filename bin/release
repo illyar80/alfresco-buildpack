@@ -10,6 +10,5 @@ config_vars:
   CATALINA_HOME: $BUILD_DIR/tomcat
   JAVA_OPTS: -Xmx384m -Xss512k -XX:+UseCompressedOops
 default_process_types:
-  web: JAVA_HOME=$PWD/.java-buildpack/open_jdk_jre JAVA_OPTS="-Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.sh -Xmx382293K
- -Xms382293K -XX:MaxPermSize=64M -XX:PermSize=64M -Xss995K -Dalpha=bravo -Dhttp.port=$PORT" $PWD/.java-buildpack/tomcat/bin/catalina.sh run
+  web: JAVA_HOME=$PWD/.java-buildpack/open_jdk_jre JAVA_OPTS="-Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.sh -Xmx382293 -Xms382293K -XX:MaxPermSize=64M -XX:PermSize=64M -Xss995K -Dalpha=bravo -Dhttp.port=$PORT" $PWD/.java-buildpack/tomcat/bin/catalina.sh run
 EOF
