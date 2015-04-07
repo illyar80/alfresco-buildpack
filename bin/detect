@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 # bin/use <build-dir>
 
+ls -l $1
+
 exit 0
