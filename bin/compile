@@ -11,16 +11,6 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-#echo "port=$PORT"
-
-#echo "build_dir=$BUILD_DIR"
-#echo "cache_dir=$CACHE_DIR"
-#echo "env_dir=$ENV_DIR"
-
-#ls -l $1
-#ls -l $2
-#ls -l $3
-
 mkdir -p $CACHE_DIR
 cd $CACHE_DIR
 
@@ -40,49 +30,39 @@ tar zxf apache-tomcat-7.0.59.tar.gz
 mv apache-tomcat-7.0.59 $BUILD_DIR/tomcat
 exit 0
 
-# Download Alfresco
-wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/alfresco-community-5.0.a.zip
-cd $CACHE_DIR
-unzip -q alfresco-community-5.0.a.zip
-mv alfresco-community-5.0.a $BUILD_DIR/alfresco
+## Download Alfresco
+#wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/alfresco-community-5.0.a.zip
+#cd $CACHE_DIR
+#unzip -q alfresco-community-5.0.a.zip
+#mv alfresco-community-5.0.a $BUILD_DIR/alfresco
 
-# Configure Tomcat for using Alfresco
-sed -i 's+^shared.loader.*+shared.loader=${catalina.base}/shared/classes,${catalina.base}/shared/lib/*.jar+' $BUILD_DIR/tomcat/conf/catalina.properties
+## Configure Tomcat for using Alfresco
+#sed -i 's+^shared.loader.*+shared.loader=${catalina.base}/shared/classes,${catalina.base}/shared/lib/*.jar+' $BUILD_DIR/tomcat/conf/catalina.properties
 
-grep shared.loader  $BUILD_DIR/tomcat/conf/catalina.properties
-cp $BUILD_DIR/alfresco/web-server/lib/postgresql-9.3-1101-jdbc41.jar $BUILD_DIR/tomcat/lib/
-mv $BUILD_DIR/tomcat/conf/server.xml $BUILD_DIR/tomcat/conf/server.xml.orig
-curl -s -k -o $BUILD_DIR/tomcat/conf/server.xml https://dl.dropboxusercontent.com/u/33282416/alfresco/server.xml
-mv $BUILD_DIR/tomcat/conf/context.xml $BUILD_DIR/tomcat/conf/context.xml.orig
-cat << EOF > $BUILD_DIR/tomcat/conf/context.xml
-<?xml version='1.0' encoding='utf-8'?>
+#grep shared.loader  $BUILD_DIR/tomcat/conf/catalina.properties
+#cp $BUILD_DIR/alfresco/web-server/lib/postgresql-9.3-1101-jdbc41.jar $BUILD_DIR/tomcat/lib/
+#mv $BUILD_DIR/tomcat/conf/server.xml $BUILD_DIR/tomcat/conf/server.xml.orig
+#curl -s -k -o $BUILD_DIR/tomcat/conf/server.xml https://dl.dropboxusercontent.com/u/33282416/alfresco/server.xml
+#mv $BUILD_DIR/tomcat/conf/context.xml $BUILD_DIR/tomcat/conf/context.xml.orig
+#cat << EOF > $BUILD_DIR/tomcat/conf/context.xml
+#<?xml version='1.0' encoding='utf-8'?>
+#
+#<Context>
+#
+#    
+#    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+#
+#    <Valve className="org.apache.catalina.authenticator.SSLAuthenticator" securePagesWithPragma="false" />
+#
+#</Context>
+#EOF
 
-<Context>
+#cp $BUILD_DIR/alfresco/web-server/webapps/alfresco.war $BUILD_DIR/tomcat/webapps
+#cp $BUILD_DIR/alfresco/web-server/webapps/share.war $BUILD_DIR/tomcat/webapps
+#\rm -rf $BUILD_DIR/tomcat/webapps/ROOT
+#mkdir -p $BUILD_DIR/tomcat/shared/classes
+#curl -s -k -o $BUILD_DIR/tomcat/shared/classes/alfresco-global.properties https://dl.dropboxusercontent.com/u/33282416/alfresco/alfresco-global.properties
 
-    
-    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+#sed -i "s+/opt/alfresco/alf_data+$BUILD_DIR/alfresco/alf-data+" $BUILD_DIR/tomcat/shared/classes/alfresco-global.properties
 
-    <Valve className="org.apache.catalina.authenticator.SSLAuthenticator" securePagesWithPragma="false" />
-
-</Context>
-EOF
-
-cp $BUILD_DIR/alfresco/web-server/webapps/alfresco.war $BUILD_DIR/tomcat/webapps
-cp $BUILD_DIR/alfresco/web-server/webapps/share.war $BUILD_DIR/tomcat/webapps
-\rm -rf $BUILD_DIR/tomcat/webapps/ROOT
-mkdir -p $BUILD_DIR/tomcat/shared/classes
-curl -s -k -o $BUILD_DIR/tomcat/shared/classes/alfresco-global.properties https://dl.dropboxusercontent.com/u/33282416/alfresco/alfresco-global.properties
-
-sed -i "s+/opt/alfresco/alf_data+$BUILD_DIR/alfresco/alf-data+" $BUILD_DIR/tomcat/shared/classes/alfresco-global.properties
-#cat $BUILD_DIR/tomcat/shared/classes/alfresco-global.properties
-#exit 1
-#export JAVA_HOME=$BUILD_DIR/jdk
-#$BUILD_DIR/tomcat/bin/startup.sh
-#sleep 40
-#ps -ef|grep java
-#tail -100 $BUILD_DIR/tomcat/logs/catalina.out
-#ping 10.64.12.104
-#lsof|grep LIST|grep vcap
-#curl http://0.0.0.0:8080
-#exit 1
 exit 0
