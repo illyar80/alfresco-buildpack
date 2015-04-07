@@ -30,6 +30,7 @@ tar zxf openjdk-1.8.0_40.tar.gz
 \rm openjdk-1.8.0_40.tar.gz
 
 #Install Tomcat 7.0.59
+cd $BUILD_DIR
 wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/apache-tomcat-7.0.59.tar.gz
 tar zxf apache-tomcat-7.0.59.tar.gz
 \rm apache-tomcat-7.0.59.tar.gz
