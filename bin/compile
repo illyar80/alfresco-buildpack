@@ -31,4 +31,9 @@ tar zxf apache-tomcat-7.0.59.tar.gz
 mv tomcat/conf/server.xml tomcat/conf/server.xml.old
 cp $BPACK_DIR/files/server.xml tomcat/conf
 
+# Download and put alfresco into tomcat
+wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/alfresco.war
+wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/share.war
+
+
 exit 0
