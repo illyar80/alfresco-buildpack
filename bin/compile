@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# bin/compile <build-dir> <cache-dir> <env-dir>
+# bin/compile <build-dir> <cache-dir>
 
 # fail fast
 set -e
@@ -9,10 +9,11 @@ BPACK_DIR=$(dirname $BIN_DIR)
 BUILD_DIR=$1
 CACHE_DIR=$2
 
-# $PWD = /tmp/staged
+# PWD       = /tmp/staged
 # BUILD_DIR = /tmp/staged/app
 # CACHE_DIR = /tmp/cache
 # BINDIR    = /tmp/buildpacks/my-tomcat/bin
+# BPACK_DIR = /tmp/buildpacks/my-tomcat
 
 cd $BUILD_DIR
 
@@ -22,7 +23,7 @@ tar zxf jdk-8u20-linux-x64.tar.gz
 \rm jdk-8u20-linux-x64.tar.gz
 mv jdk1.8.0_20 jdk
 
-#Install Tomcat 7.0.59
+# Install Tomcat 7.0.59 and modify its conf/server.xml to accept external parameter as TCP port to bind to
 wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/apache-tomcat-7.0.59.tar.gz
 tar zxf apache-tomcat-7.0.59.tar.gz
 \rm apache-tomcat-7.0.59.tar.gz
@@ -30,7 +31,4 @@ tar zxf apache-tomcat-7.0.59.tar.gz
 mv tomcat/conf/server.xml tomcat/conf/server.xml.old
 cp $BPACK_DIR/files/server.xml tomcat/conf
 
-#cat tomcat/conf/server.xml
-
-#ls -l $BUILD_DIR
 exit 0
