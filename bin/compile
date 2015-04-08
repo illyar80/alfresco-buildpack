@@ -30,6 +30,4 @@ tar zxf apache-tomcat-7.0.59.tar.gz
 \rm apache-tomcat-7.0.59.tar.gz
 mv apache-tomcat-7.0.59 tomcat
 
-#ls -l $BUILD_DIR
-
 exit 0
