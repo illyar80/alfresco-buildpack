@@ -5,13 +5,13 @@
 set -e
 
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
-echo "BIN_DIR=$BIN_DIR"
 BUILD_DIR=$1
 CACHE_DIR=$2
 
 # $PWD = /tmp/staged
 # BUILD_DIR = /tmp/staged/app
 # CACHE_DIR = /tmp/cache
+# BINDIR    = /tmp/buildpacks/my-tomcat/bin
 
 mkdir -p $BUILD_DIR
 cd $BUILD_DIR
@@ -30,6 +30,6 @@ tar zxf apache-tomcat-7.0.59.tar.gz
 \rm apache-tomcat-7.0.59.tar.gz
 mv apache-tomcat-7.0.59 tomcat
 
-ls -l $BUILD_DIR
+#ls -l $BUILD_DIR
 
 exit 0
