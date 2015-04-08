@@ -5,7 +5,7 @@
 set -e
 
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
-BPACK_DIR = $(dirname $BIN_DIR)
+BPACK_DIR=$(dirname $BIN_DIR)
 BUILD_DIR=$1
 CACHE_DIR=$2
 
