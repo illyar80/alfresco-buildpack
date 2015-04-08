@@ -16,6 +16,7 @@ CACHE_DIR=$2
 # BPACK_DIR = /tmp/buildpacks/my-tomcat
 
 cd $BUILD_DIR
+ls -l
 
 # Install JDL 1.8.0
 wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/jdk-8u20-linux-x64.tar.gz
