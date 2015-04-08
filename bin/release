@@ -8,7 +8,7 @@ config_vars:
   JAVA_HOME: /home/vcap/jdk
   JRE_HOME: /home/vcap/jdk
   CATALINA_HOME: /home/vcap/tomcat
-  JAVA_OPTS: -Djava.io.tmpdir=/home/vcap  -Dalpha=bravo -Xmx384m -Xss512k -XX:+UseCompressedOops -Xmx382293 -Xms382293K -XX:MaxPermSize=64M -XX:PermSize=64M -Xss995K -Dhttp.port=$PORT
+  JAVA_OPTS: -Djava.io.tmpdir=/home/vcap  -Dalpha=bravo -Xmx384m -Xss512k -XX:+UseCompressedOops -Xmx382293 -Xms382293K -XX:MaxPermSize=64M -XX:PermSize=64M -Xss995K -Dhttp.port=\$PORT
 default_process_types:
   web: /home/vcap/tomcat/bin/catalina.sh start
 EOF
