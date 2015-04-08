@@ -30,7 +30,7 @@ tar zxf apache-tomcat-7.0.59.tar.gz
 mv tomcat/conf/server.xml tomcat/conf/server.xml.old
 cp $BPACK_DIR/files/server.xml tomcat/conf
 
-cat tomcat/conf/server.xml
+#cat tomcat/conf/server.xml
 
 #ls -l $BUILD_DIR
 exit 0
