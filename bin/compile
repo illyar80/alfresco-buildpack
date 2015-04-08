@@ -34,6 +34,6 @@ cp $BPACK_DIR/files/server.xml tomcat/conf
 # Download and put alfresco into tomcat
 wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/alfresco.war
 wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/share.war
-
+mv alfresco.war share.war tomcat/webapps/
 
 exit 0
