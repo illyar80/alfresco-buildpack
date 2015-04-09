@@ -36,10 +36,12 @@ wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfr
 wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/share.war
 #mv share.war tomcat/webapps/
 
+# removed the files extracted from the alfresco.war (we want to put the war "as is" inside the tomcat/webapps dir)
+\rm -rf cmis-browser-app  cmisfs  css  css-boilerplate  favicon.ico  images  index.jsp  jsp  META-INF  scripts  swf  WEB-INF  yui
+
 ls -l $BUILD_DIR
 ls -l $BUILD_DIR/tomcat/webapps
 
-\rm -rf cmis-browser-app  cmisfs  css  css-boilerplate  favicon.ico  images  index.jsp  jsp  META-INF  scripts  swf  WEB-INF  yui
 
 
 
