@@ -33,14 +33,23 @@ cp $BPACK_DIR/files/server.xml tomcat/conf
 \rm -rf tomcat/webapps/*
 
 # Download the share.war dependency
-wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/share.war
+#wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/share.war
 
 # mv the files extracted from the alfresco.war into tomcat/webapps dir
-mv cmis-browser-app  cmisfs  css  css-boilerplate  favicon.ico  images  index.jsp  jsp  META-INF  scripts  swf  WEB-INF  yui tomcat/webapps
-mkdir -p tomcat/webapps/share
-mv share.war tomcat/webapps/share
-cd tomcat/webapps/share
-unzip share.war
+#mv cmis-browser-app  cmisfs  css  css-boilerplate  favicon.ico  images  index.jsp  jsp  META-INF  scripts  swf  WEB-INF  yui tomcat/webapps
+#mkdir -p tomcat/webapps/share
+#mv share.war tomcat/webapps/share
+#cd tomcat/webapps/share
+#unzip share.war
+
+\rm -rf cmis-browser-app  cmisfs  css  css-boilerplate  favicon.ico  images  index.jsp  jsp  META-INF  scripts  swf  WEB-INF  yui tomcat/webapps
+
+wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/Wars/simple.war
+mkdir -p tomcat/webapps/simple
+mv simple.war tomcat/webapps/simple
+cd tomcat/webapps/simple
+unzip simple.war
+\rm -f simple.war
 cd -
 #ls -l $BUILD_DIR
 #ls -l $BUILD_DIR/tomcat/webapps
