@@ -31,14 +31,17 @@ tar zxf apache-tomcat-7.0.59.tar.gz
 mv tomcat/conf/server.xml tomcat/conf/server.xml.old
 cp $BPACK_DIR/files/server.xml tomcat/conf
 \rm -rf tomcat/webapps/*
-# Download and put alfresco into tomcat
-#wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/alfresco.war
-wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/share.war
-#mv share.war tomcat/webapps/
 
-# removed the files extracted from the alfresco.war (we want to put the war "as is" inside the tomcat/webapps dir)
+# Download the share.war dependency
+wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/share.war
+
+# mv the files extracted from the alfresco.war into tomcat/webapps dir
 mv cmis-browser-app  cmisfs  css  css-boilerplate  favicon.ico  images  index.jsp  jsp  META-INF  scripts  swf  WEB-INF  yui tomcat/webapps
-mv alfresco.war share.war tomcat/webapps/
+mkdir -p tomcat/webapps/share
+mv share.war tomcat/webapps/share
+cd tomcat/webapps/share
+unzip share.war
+cd -
 #ls -l $BUILD_DIR
 #ls -l $BUILD_DIR/tomcat/webapps
 
