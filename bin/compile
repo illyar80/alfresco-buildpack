@@ -78,5 +78,7 @@ cd $BUILD_DIR
 mkdir swf
 cd swf
 tar zxf $BPACK_DIR/files/swf-0.9.2.tar.gz
+cd ..
+ldd swf/bin/pdf2swf
 
 exit 0
