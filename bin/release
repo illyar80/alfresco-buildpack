@@ -7,6 +7,7 @@ config_vars:
   PATH: /home/vcap/app/jdk/bin:/usr/local/bin:/usr/bin:/bin
   JAVA_HOME: /home/vcap/app/jdk
   JRE_HOME: /home/vcap/app/jdk
+  LD_LIBRARY_PATH: /home/vcap/app/imagemagick/lib
 default_process_types:
   web: /home/vcap/app/jdk/bin/java -Dhttp.port="\$PORT" -Djava.util.logging.config.file=/home/vcap/app/tomcat/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djava.endorsed.dirs=/home/vcap/app/tomcat/endorsed -classpath /home/vcap/app/tomcat/bin/bootstrap.jar:/home/vcap/app/tomcat/bin/tomcat-juli.jar -Dcatalina.base=/home/vcap/app/tomcat -Dcatalina.home=/home/vcap/app/tomcat -Djava.io.tmpdir=/home/vcap/app/tomcat/temp org.apache.catalina.startup.Bootstrap start
 EOF
