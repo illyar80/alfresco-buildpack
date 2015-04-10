@@ -67,4 +67,10 @@ cd $BUILD_DIR
 
 ls -l $BUILD_DIR
 cat $BUILD_DIR/tomcat/shared/classes/alfresco-global.properties|grep -v ^#
+
+ls -l $BUILD_DIR/tomcat/shared/classes
+ls -l $BUILD_DIR/tomcat/shared/lib
+ls -l $BUILD_DIR/tomcat/webapps/
+ls -l $BUILD_DIR/tomcat/endorsed
+
 exit 0
