@@ -18,40 +18,19 @@ CACHE_DIR=$2
 cd $BUILD_DIR
 
 # Install JDL 1.8.0
-wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/jdk-8u20-linux-x64.tar.gz
+wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/tomcat8/tomcat8-configured-for-Alfresco.tar.gz
 tar zxf jdk-8u20-linux-x64.tar.gz
 \rm jdk-8u20-linux-x64.tar.gz
 mv jdk1.8.0_20 jdk
 
-# Install Tomcat 7.0.59 and modify its conf/server.xml to accept external parameter as TCP port to bind to
+# Install Tomcat 8 and modify its conf/server.xml to accept external parameter as TCP port to bind to
 wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/apache-tomcat-7.0.59.tar.gz
-tar zxf apache-tomcat-7.0.59.tar.gz
-\rm apache-tomcat-7.0.59.tar.gz
-\mv apache-tomcat-7.0.59 tomcat
+tar zxf tomcat8-configured-for-Alfresco.tar.gz
+\rm tomcat8-configured-for-Alfresco.tar.gz
+\mv apache-tomcat-8.0.21 tomcat
 mv tomcat/conf/server.xml tomcat/conf/server.xml.old
-cp $BPACK_DIR/files/server.xml tomcat/conf
-\rm -rf tomcat/webapps/*
-
-# Download the share.war dependency
-#wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/share.war
-
-# mv the files extracted from the alfresco.war into tomcat/webapps dir
-#mv cmis-browser-app  cmisfs  css  css-boilerplate  favicon.ico  images  index.jsp  jsp  META-INF  scripts  swf  WEB-INF  yui tomcat/webapps
-#mkdir -p tomcat/webapps/share
-#mv share.war tomcat/webapps/share
-#cd tomcat/webapps/share
-#unzip share.war
-
-\rm -rf cmis-browser-app  cmisfs  css  css-boilerplate  favicon.ico  images  index.jsp  jsp  META-INF  scripts  swf  WEB-INF  yui tomcat/webapps
-
-wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/Wars/simple.war
-mkdir -p tomcat/webapps/simple
-mv simple.war tomcat/webapps/simple
-cd tomcat/webapps/simple
-unzip simple.war
-\rm -f simple.war
-cd -
-#ls -l $BUILD_DIR
-#ls -l $BUILD_DIR/tomcat/webapps
+\cp -f $BPACK_DIR/files/server.xml tomcat/conf/
+\cp -f $BPACK_DIR/files/context.xml tomcat/conf/
+\cp -f $BPACK_DIR/files/catalina.properties tomcat/conf/
 
 exit 0
