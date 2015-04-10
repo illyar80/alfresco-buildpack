@@ -24,16 +24,16 @@ tar zxf jdk-8u20-linux-x64.tar.gz
 mv jdk1.8.0_20 jdk
 
 # Install Tomcat 8 and modify its conf/server.xml to accept external parameter as TCP port to bind to
-wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/tomcat8/tomcat8-configured-for-Alfresco.tar.gz
-tar zxf tomcat8-configured-for-Alfresco.tar.gz
+wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/tomcat8/tomcat8-configured-for-Alfresco.tar.gz 2>&1 1>& /dev/null
+tar zxf tomcat8-configured-for-Alfresco.tar.gz 2>&1 1>& /dev/null
 \rm tomcat8-configured-for-Alfresco.tar.gz
 \mv apache-tomcat-8.0.21 tomcat
 mv tomcat/conf/server.xml tomcat/conf/server.xml.old
 mv tomcat/conf/context.xml tomcat/conf/context.xml.old
 mv tomcat/conf/catalina.properties tomcat/conf/catalina.properties.old
-\cp -f $BPACK_DIR/files/server.xml tomcat/conf/
-\cp -f $BPACK_DIR/files/context.xml tomcat/conf/
-\cp -f $BPACK_DIR/files/catalina.properties tomcat/conf/
+\cp -f $BPACK_DIR/files/server.xml tomcat/conf/ 2>&1 1>& /dev/null
+\cp -f $BPACK_DIR/files/context.xml tomcat/conf/ 2>&1 1>& /dev/null
+\cp -f $BPACK_DIR/files/catalina.properties tomcat/conf/ 2>&1 1>& /dev/null
 mkdir -p tomcat/shared/classes
 mkdir -p tomcat/shared/lib
 mkdir -p tomcat/endorsed
@@ -41,23 +41,23 @@ mkdir -p tomcat/endorsed
 
 # Download Alfresco and configure tomcat to run it
 cd $BUILD_DIR
-wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/alfresco-community-5.0.a.zip
-unzip alfresco-community-5.0.a.zip
+wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/alfresco-community-5.0.a.zip 2>&1 1>& /dev/null
+unzip alfresco-community-5.0.a.zip 2>&1 1>& /dev/null
 \rm alfresco-community-5.0.a.zip
-cd alfresco-community-5.0.a
-cp -R web-server/endorsed/* $BUILD_DIR/tomcat/endorsed/
-cp -R web-server/shared/* $BUILD_DIR/tomcat/shared
-cp -R web-server/lib/* $BUILD_DIR/tomcat/lib
+cd alfresco-community-5.0.a 2>&1 1>& /dev/null
+cp -R web-server/endorsed/* $BUILD_DIR/tomcat/endorsed/ 2>&1 1>& /dev/null
+cp -R web-server/shared/* $BUILD_DIR/tomcat/shared 2>&1 1>& /dev/null
+cp -R web-server/lib/* $BUILD_DIR/tomcat/lib 2>&1 1>& /dev/null
 cd web-server/webapps/
 mkdir tmp
 cd tmp
-unzip ../alfresco.war
+unzip ../alfresco.war 2>&1 1>& /dev/null
 cd ..
 mv tmp alfresco 
 mv alfresco $BUILD_DIR/tomcat/webapps
 mkdir tmp
 cd tmp
-unzip ../share.war
+unzip ../share.war 2>&1 1>& /dev/null
 cd ..
 mv tmp share
 mv share $BUILD_DIR/tomcat/webapps
@@ -65,6 +65,6 @@ cd $BUILD_DIR
 
 \rm -rf alfresco-community-5.0.a $BUILD_DIR/simple.war HelloWorld.java WEB-INF
 
-ls -l $BUILD_DIR
+#ls -l $BUILD_DIR
 
 exit 0
