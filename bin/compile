@@ -34,5 +34,26 @@ mv tomcat/conf/catalina.properties tomcat/conf/catalina.properties.old
 \cp -f $BPACK_DIR/files/server.xml tomcat/conf/
 \cp -f $BPACK_DIR/files/context.xml tomcat/conf/
 \cp -f $BPACK_DIR/files/catalina.properties tomcat/conf/
+mkdir -p tomcat/shared/classes
+mkdir -p tomcat/shared/lib
+mkdir -p tomcat/endorsed
+
+
+# Download Alfresco and configure tomcat to run it
+cd $BUILD_DIR
+wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/alfresco-community-5.0.a.zip
+unzip alfresco-community-5.0.a.zip
+\rm alfresco-community-5.0.a.zip
+cd alfresco-community-5.0.a
+cp -R web-server/endorsed/* $BUILD_DIR/tomcat/endorsed/
+cp -R web-server/shared/* $BUILD_DIR/tomcat/shared
+cp -R web-server/lib/* $BUILD_DIR/tomcat/lib
+cp -R web-server/webapps/* $BUILD_DIR/tomcat/webapps/
+\rm -rf alfresco-community-5.0.a
+
+\rm -rf simple.war
+
+ls -l $BUILD_DIR
+\rm -f $BUILD_DIR/simple.war
 
 exit 0
