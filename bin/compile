@@ -24,8 +24,7 @@ tar zxf jdk-8u20-linux-x64.tar.gz
 mv jdk1.8.0_20 jdk
 
 # Install Tomcat 8 and modify its conf/server.xml to accept external parameter as TCP port to bind to
-wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/apache-tomcat-7.0.59.tar.gz
-tar zxf tomcat8-configured-for-Alfresco.tar.gz
+wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/tomcat8/tomcat8-configured-for-Alfresco.tar.gztar zxf tomcat8-configured-for-Alfresco.tar.gz
 \rm tomcat8-configured-for-Alfresco.tar.gz
 \mv apache-tomcat-8.0.21 tomcat
 mv tomcat/conf/server.xml tomcat/conf/server.xml.old
