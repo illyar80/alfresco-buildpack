@@ -66,12 +66,17 @@ cd $BUILD_DIR
 
 \rm -rf alfresco-community-5.0.a $BUILD_DIR/simple.war HelloWorld.java WEB-INF
 
-ls -l $BUILD_DIR
-cat $BUILD_DIR/tomcat/shared/classes/alfresco-global.properties|grep -v ^#
+#ls -l $BUILD_DIR
+#cat $BUILD_DIR/tomcat/shared/classes/alfresco-global.properties|grep -v ^#
 
-ls -l $BUILD_DIR/tomcat/shared/classes
-ls -l $BUILD_DIR/tomcat/shared/lib
-ls -l $BUILD_DIR/tomcat/webapps/
-ls -l $BUILD_DIR/tomcat/endorsed
+#ls -l $BUILD_DIR/tomcat/shared/classes
+#ls -l $BUILD_DIR/tomcat/webapps/
+##ls -l $BUILD_DIR/tomcat/shared/lib
+#ls -l $BUILD_DIR/tomcat/endorsed
+
+# Install SWF Tools
+mkdir swf
+cd swf
+tar zxf $BPACK_DIR/files/swf-0.9.2.tar.gz
 
 exit 0
