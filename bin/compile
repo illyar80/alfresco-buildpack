@@ -17,13 +17,15 @@ CACHE_DIR=$2
 
 cd $BUILD_DIR
 
-# Install JDL 1.8.0
+# Install JDK 1.8.0
+echo "Installing JDK 1.8"
 wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/jdk-8u20-linux-x64.tar.gz 2>&1 1>& /dev/null
 tar zxf jdk-8u20-linux-x64.tar.gz 2>&1 1>& /dev/null
 \rm jdk-8u20-linux-x64.tar.gz
 mv jdk1.8.0_20 jdk
 
 # Install Tomcat 8 and modify its conf/server.xml to accept external parameter as TCP port to bind to
+echo "Installing Tomcat 8"
 wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/tomcat8/tomcat8-configured-for-Alfresco.tar.gz 2>&1 1>& /dev/null
 tar zxf tomcat8-configured-for-Alfresco.tar.gz 2>&1 1>& /dev/null
 \rm tomcat8-configured-for-Alfresco.tar.gz
@@ -40,6 +42,7 @@ mkdir -p tomcat/endorsed
 
 
 # Download Alfresco and configure tomcat to run it
+echo "Installing Alfresco 5"
 cd $BUILD_DIR
 wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/alfresco-community-5.0.a.zip 2>&1 1>& /dev/null
 unzip alfresco-community-5.0.a.zip 2>&1 1>& /dev/null
@@ -75,21 +78,23 @@ cd $BUILD_DIR
 #ls -l $BUILD_DIR/tomcat/endorsed
 
 # Compile and install SWF Tools
+echo "Building SWF Tools"
 mkdir swf-build
 cd swf-build
 tar zxf $BPACK_DIR/files/bin_deps/swftools-2013-04-09-1007.tar.gz
 cd swftools-2013-04-09-1007
-./configure --prefix=$BUILD_DIR/swftools
-make ; make install
+./configure --prefix=$BUILD_DIR/swftools  2>&1 1>& /dev/null
+make  2>&1 1>& /dev/null; make install  2>&1 1>& /dev/null
 cd ../..
 \rm -rf swf-build
 # Compile and install ImageMagick
+echo "Building ImageMagick"
 mkdir imgk-build
 cd imgk-build
-tar jxf $BPACK_DIR/files/bin_deps/ImageMagick-6.9.1-1.tar.bz2
+tar jxf $BPACK_DIR/files/bin_deps/ImageMagick-6.9.1-1.tar.bz2 
 cd ImageMagick-6.9.1-1
-./configure --prefix=$BUILD_DIR/imagemagick
-make; make install
+./configure --prefix=$BUILD_DIR/imagemagick  2>&1 1>& /dev/null
+make  2>&1 1>& /dev/null; make install  2>&1 1>& /dev/null
 cd ../..
 \rm -rf imgk-build
 #ls -l $BUILD_DIR/swftools
