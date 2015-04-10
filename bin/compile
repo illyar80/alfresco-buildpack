@@ -29,6 +29,8 @@ tar zxf tomcat8-configured-for-Alfresco.tar.gz
 \rm tomcat8-configured-for-Alfresco.tar.gz
 \mv apache-tomcat-8.0.21 tomcat
 mv tomcat/conf/server.xml tomcat/conf/server.xml.old
+mv tomcat/conf/context.xml tomcat/conf/context.xml.old
+mv tomcat/conf/catalina.properties tomcat/conf/catalina.properties.old
 \cp -f $BPACK_DIR/files/server.xml tomcat/conf/
 \cp -f $BPACK_DIR/files/context.xml tomcat/conf/
 \cp -f $BPACK_DIR/files/catalina.properties tomcat/conf/
