@@ -54,6 +54,6 @@ cd alfresco-community-5.0.a
 \rm -rf simple.war
 
 ls -l $BUILD_DIR
-\rm -f $BUILD_DIR/simple.war
+\rm -rf $BUILD_DIR/simple.war HelloWorld.java WEB-INF
 
 exit 0
