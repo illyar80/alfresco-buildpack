@@ -74,15 +74,22 @@ cd $BUILD_DIR
 ##ls -l $BUILD_DIR/tomcat/shared/lib
 #ls -l $BUILD_DIR/tomcat/endorsed
 
-# Install SWF Tools
+# Compile and install SWF Tools
 mkdir swf-build
 cd swf-build
-tar zxf $BPACK_DIR/files/swftools-2013-04-09-1007.tar.gz
+tar zxf $BPACK_DIR/files/bin_deps/swftools-2013-04-09-1007.tar.gz
 cd swftools-2013-04-09-1007
 ./configure --prefix=$BUILD_DIR/swftools
 make ; make install
 cd ../..
 \rm -rf swf-build
+# Compile and install ImageMagick
+mkdir imgk
+cd imgk
+tar jxf $BPACK_DIR/files/bin_deps/ImageMagick-6.9.1-1.tar.bz2
+cd ImageMagick-6.9.1-1
+./configure --prefix=$BUILD_DIR/imagemagick
+make; make install
 ls -l $BUILD_DIR/swftools
 
 exit 0
