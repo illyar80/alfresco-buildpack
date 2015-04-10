@@ -48,6 +48,7 @@ cd alfresco-community-5.0.a 2>&1 1>& /dev/null
 cp -R web-server/endorsed/* $BUILD_DIR/tomcat/endorsed/ 2>&1 1>& /dev/null
 cp -R web-server/shared/* $BUILD_DIR/tomcat/shared 2>&1 1>& /dev/null
 cp -R web-server/lib/* $BUILD_DIR/tomcat/lib 2>&1 1>& /dev/null
+cp $$BPACK_DIR/files/alfresco-global.properties $BUILD_DIR/tomcat/shared/classes/
 cd web-server/webapps/
 mkdir tmp
 cd tmp
