@@ -45,11 +45,11 @@ wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfr
 unzip alfresco-community-5.0.a.zip
 \rm alfresco-community-5.0.a.zip
 cd alfresco-community-5.0.a
-cp -R web-server/endorsed/* $BUILD_DIR/tomcat/endorsed/
-cp -R web-server/shared/* $BUILD_DIR/tomcat/shared
-cp -R web-server/lib/* $BUILD_DIR/tomcat/lib
-cp -R web-server/webapps/* $BUILD_DIR/tomcat/webapps/
-\rm -rf alfresco-community-5.0.a
+#cp -R web-server/endorsed/* $BUILD_DIR/tomcat/endorsed/
+#cp -R web-server/shared/* $BUILD_DIR/tomcat/shared
+#cp -R web-server/lib/* $BUILD_DIR/tomcat/lib
+#cp -R web-server/webapps/* $BUILD_DIR/tomcat/webapps/
+#\rm -rf alfresco-community-5.0.a
 
 \rm -rf simple.war
 
