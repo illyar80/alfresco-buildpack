@@ -66,5 +66,5 @@ cd $BUILD_DIR
 \rm -rf alfresco-community-5.0.a $BUILD_DIR/simple.war HelloWorld.java WEB-INF
 
 ls -l $BUILD_DIR
-
+cat $BUILD_DIR/tomcat/shared/classes/alfresco-global.properties|grep -v ^#
 exit 0
