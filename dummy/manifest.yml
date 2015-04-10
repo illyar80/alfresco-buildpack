@@ -1,8 +1,8 @@
 ---
 applications:
 - name: alfresco
-  memory: 2G
-  disk_quota: 2G
+  memory: 3G
+  disk_quota: 3G
   host: alfresco
   path: ./simple.war
-  buildpack: https://github.com/alvise72/my-tomcat
+  buildpack: https://github.com/alvise72/alfresco-buildpack
