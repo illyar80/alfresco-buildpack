@@ -84,7 +84,7 @@ cd swf-build
 tar zxf $BPACK_DIR/files/bin_deps/swftools-2013-04-09-1007.tar.gz
 cd swftools-2013-04-09-1007
 ./configure --prefix=$BUILD_DIR/swftools  2>&1 1>& /dev/null
-make  2>&1 1>& /dev/null; make install  2>&1 1>& /dev/null
+make -j2 2>&1 1>& /dev/null; make install  2>&1 1>& /dev/null
 cd ../..
 \rm -rf swf-build
 # Compile and install ImageMagick
@@ -94,7 +94,7 @@ cd imgk-build
 tar jxf $BPACK_DIR/files/bin_deps/ImageMagick-6.9.1-1.tar.bz2 
 cd ImageMagick-6.9.1-1
 ./configure --prefix=$BUILD_DIR/imagemagick --enable-static 2>&1 1>& /dev/null
-make  2>&1 1>& /dev/null; make install  2>&1 1>& /dev/null
+make -j2 2>&1 1>& /dev/null; make install  2>&1 1>& /dev/null
 cd ../..
 \rm -rf imgk-build
 #ls -l $BUILD_DIR/swftools
