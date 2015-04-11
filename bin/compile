@@ -173,9 +173,15 @@ cd ../..
 \rm -rf imgk-build
 
 # Install Libreoffice 4.3.6
-echo "Downloading Libreoffice 4.3.6 amd64"
-mkdir $BUILD_DIR/libreoffice
-cd $BUILD/libreoffice
-wget -q --no-check-certificate http://download.documentfoundation.org/libreoffice/stable/4.3.6/deb/x86_64/LibreOffice_4.3.6_Linux_x86-64_deb.tar.gz 2>&1 1>& /dev/null
+#echo "Downloading Libreoffice 4.3.6 amd64"
+#mkdir $BUILD_DIR/libreoffice
+#cd $BUILD/libreoffice
+#wget -q --no-check-certificate http://download.documentfoundation.org/libreoffice/stable/4.3.6/deb/x86_64/LibreOffice_4.3.6_Linux_x86-64_deb.tar.gz 2>&1 1>& /dev/null
 
+#tar zxvf LibreOffice_4.3.6_Linux_x86-64_deb.tar.gz
+#\rm LibreOffice_4.3.6_Linux_x86-64_deb.tar.gz
+#cd LibreOffice_4.3.6.2_Linux_x86-64_deb/DEBS
+#mkdir tmp
+
+#dpkg -i
 exit 0
