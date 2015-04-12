@@ -173,15 +173,71 @@ cd ../..
 \rm -rf imgk-build
 
 # Install Libreoffice 4.3.6
-#echo "Downloading Libreoffice 4.3.6 amd64"
-#mkdir $BUILD_DIR/libreoffice
-#cd $BUILD/libreoffice
-#wget -q --no-check-certificate http://download.documentfoundation.org/libreoffice/stable/4.3.6/deb/x86_64/LibreOffice_4.3.6_Linux_x86-64_deb.tar.gz 2>&1 1>& /dev/null
+echo "Downloading Libreoffice 4.3.6 amd64"
+mkdir $BUILD_DIR/libreoffice
+cd $BUILD_DIR/libreoffice
+wget -q --no-check-certificate http://download.documentfoundation.org/libreoffice/stable/4.3.6/deb/x86_64/LibreOffice_4.3.6_Linux_x86-64_deb.tar.gz 2>&1 1>& /dev/null
 
-#tar zxvf LibreOffice_4.3.6_Linux_x86-64_deb.tar.gz
-#\rm LibreOffice_4.3.6_Linux_x86-64_deb.tar.gz
-#cd LibreOffice_4.3.6.2_Linux_x86-64_deb/DEBS
-#mkdir tmp
+tar zxvf LibreOffice_4.3.6_Linux_x86-64_deb.tar.gz
+\rm LibreOffice_4.3.6_Linux_x86-64_deb.tar.gz
+cd LibreOffice_4.3.6.2_Linux_x86-64_deb/DEBS
+mkdir tmp
 
-#dpkg -i
+dpkg -x libobasis4.3-base_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-calc_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-core01_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-core02_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-core03_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-core04_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-core05_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-core06_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-core07_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-draw_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-en-us_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-en-us-base_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-en-us-calc_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-en-us-math_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-en-us-res_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-en-us-writer_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-extension-beanshell-script-provider_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-extension-javascript-script-provider_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-extension-mediawiki-publisher_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-extension-nlpsolver_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-extension-pdf-import_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-extension-report-builder_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-filter-data_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-gnome-integration_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-graphicfilter_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-images_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-impress_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-kde-integration_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-librelogo_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-math_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-ogltrans_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-onlineupdate_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-ooofonts_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-ooolinguistic_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-postgresql-sdbc_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-python-script-provider_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-pyuno_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-writer_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libobasis4.3-xsltfilter_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libreoffice4.3_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libreoffice4.3-base_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libreoffice4.3-calc_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libreoffice4.3-debian-menus_4.3.6-2_all.deb tmp/
+dpkg -x libreoffice4.3-dict-en_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libreoffice4.3-dict-es_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libreoffice4.3-dict-fr_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libreoffice4.3-draw_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libreoffice4.3-en-us_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libreoffice4.3-impress_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libreoffice4.3-math_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libreoffice4.3-ure_4.3.6.2-2_amd64.deb tmp/
+dpkg -x libreoffice4.3-writer_4.3.6.2-2_amd64.deb tmp/
+
+mv tmp/opt/libreoffice4.3 $BUILD_DIR
+cd $BUILD_DIR
+\rm -rf libreoffice
+
 exit 0
