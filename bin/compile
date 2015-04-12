@@ -182,7 +182,7 @@ tar zxvf LibreOffice_4.3.6_Linux_x86-64_deb.tar.gz
 \rm LibreOffice_4.3.6_Linux_x86-64_deb.tar.gz
 cd LibreOffice_4.3.6.2_Linux_x86-64_deb/DEBS
 mkdir tmp
-
+echo "Unpacking Libreoffice 4.3.6 amd64"
 dpkg -x libobasis4.3-base_4.3.6.2-2_amd64.deb tmp/
 dpkg -x libobasis4.3-calc_4.3.6.2-2_amd64.deb tmp/
 dpkg -x libobasis4.3-core01_4.3.6.2-2_amd64.deb tmp/
