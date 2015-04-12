@@ -239,5 +239,14 @@ dpkg -x libreoffice4.3-writer_4.3.6.2-2_amd64.deb tmp/
 mv tmp/opt/libreoffice4.3 $BUILD_DIR
 cd $BUILD_DIR
 \rm -rf libreoffice
+
+# Install libdbus-glib
+echo "--> Installing libdbus-glib"
+cd $BUILD_DIR
+wget  -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/libdbus-glib-1-2_0.84-1ubuntu0.3_amd64.deb 2>&1 1>& /dev/null
+dpkg -x libdbus-glib-1-2_0.84-1ubuntu0.3_amd64.deb .
+mv usr/lib/* libreoffice4.3/program/
+\rm -rf usr libdbus-glib-1-2_0.84-1ubuntu0.3_amd64.deb
 echo "... done with dependencies."
+
 exit 0
