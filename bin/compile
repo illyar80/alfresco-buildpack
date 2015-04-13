@@ -21,9 +21,10 @@ cd $BUILD_DIR
 echo "--> Installing JRE 1.8.0_40"
 #wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/jdk-8u20-linux-x64.tar.gz 2>&1 1>& /dev/null
 wget -q --no-check-certificate  https://dl.dropboxusercontent.com/u/33282416/alfresco/jre-1.8.0_40.tar.gz 2>&1 1>& /dev/null
-tar zxf jdk-8u20-linux-x64.tar.gz 2>&1 1>& /dev/null
-\rm jdk-8u20-linux-x64.tar.gz
-mv jdk1.8.0_20 jdk
+mkdir jre
+tar zxf jre-1.8.0_40.tar.gz -C jre/ 2>&1 1>& /dev/null
+\rm jre-1.8.0_40.tar.gz
+#mv jdk1.8.0_20 jdk
 
 # Install Tomcat 8 and modify its conf/server.xml to accept external parameter as TCP port to bind to
 echo "--> Installing Tomcat 8.0.21"
