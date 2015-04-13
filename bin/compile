@@ -17,7 +17,7 @@ CACHE_DIR=$2
 
 cd $BUILD_DIR
 
-# Install JDK 1.8.0
+# Install JRE 1.8.0
 echo "--> Installing JRE 1.8.0_40"
 #wget -q --no-check-certificate https://dl.dropboxusercontent.com/u/33282416/alfresco/jdk-8u20-linux-x64.tar.gz 2>&1 1>& /dev/null
 wget -q --no-check-certificate  https://dl.dropboxusercontent.com/u/33282416/alfresco/jre-1.8.0_40.tar.gz 2>&1 1>& /dev/null
