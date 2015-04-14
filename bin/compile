@@ -250,5 +250,38 @@ dpkg -x libdbus-glib-1-2_0.84-1ubuntu0.3_amd64.deb .
 mv usr/lib/* libreoffice4.3/program/
 \rm -rf usr libdbus-glib-1-2_0.84-1ubuntu0.3_amd64.deb
 echo "... done with dependencies."
-
+echo "Generating SSH keys for remote SSHFS mount"
+cat << EOF > vcap_key
+-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEA1rdlVZK9op53kB5y7C0pfemxgBGhU7Lj0oRaNxh0RTkMYWb6
+FWZN5gjE1mD2MLlKxLb/GZSjGuLNjcPNVHAv+o6A05+mA44EPkdKzJpk3iwyB+vF
+2uMFJdV+kly7QTLzSP42oZ1kTNZT6I0Otyu1S6jKnMPEYJoKmHns1pv4X4ahQPqV
+a83dzjqlZVSL3HDxceJGnlCtp8b6YnO0A+/Lr6RpRIcce2RshrMN0KcKZ3rkaTfu
+pWka4M0lMecwlNNUjhOj2zPJWyuRobcsWzgQ1890jypKV94NEyXn53Nld4HR3TfF
+psMqNv5DhzmAMnwgla2gUBf3/v35KMVKRn6boQIBIwKCAQBubPJJRCcDLO0ISix5
+dk/aWu2SUjW2BDqmx7leKdVlbcvaUjd4uEVRu13qmEQZDtX+xIMxuif/MtAdBZzM
+VvQadSxPk+76g40nV91TSBaeJVuPC4pTUC6IfGz60JrREuOEn/7WxfkRkswRMpna
+i4HPI5tmkJDhOUdHGiIH+HEbLlnKATCu9Nnuw/0d4cvLZolD1wtDy/muzckr6q8f
+R/l+ya9r7ezGHxRwbHohBtDPjjwDrMllBAFTrSdktQ8Mm42+XKxrS9TVasQyT7Ya
+KK3RXPxL8aBxMe6VaZAfD33xwd7NEDGDYkeDfvoGQ6U6PWu3ty2e5sP31WJst+OW
+3iojAoGBAPyxnLloSYO5PPHcdnDs/uTBWJqBHHqrghoj6DbzStOwdf6la91Ntyl+
+3Hl7E0+VWsOZOoQJIcbJQx/MTIY17gGGWgVvoky6Vh+md5s7untF2OEWE4VncaJE
+krEcYTzVzfeK0HK/cfRy57iQAFBnS08BFgnCB2VHY/pGUXOBhLd/AoGBANmGlG8h
+GgeoR7kkGNXHgAHJEjKnmVu2mEra7dM3YCEW3yO/BYEBximCkd/ABnoiGciP9I2t
+MVGDDqqTj/Cp779q6PnT017I958npJKXSu5B+qjla5swxDdWt7sAdAkSuuH8jvKg
+vMcn9Poj7or2ZA5aCL3ZFvk5QjFH8dUfnzzfAoGBAIH08YPsfZQzYSvtuUFj8M1q
+v9puSSklARTCAmVnLcv0WfCs2GMvSEE57brRlOcZnGSX8jVGhmY7nt0nPUxWP+OG
+7HfTAwLjfL/R9F52fSl0YOjJhmHdbaPowHhXvPq3GXf+P1D0vkMzx6C/Fhq4x6T5
+Pois7dxQmdErelipAmz/AoGBANNPiOD7laEJ30YjEM+r229y3npZqutg67ZuRh2j
+gfRCGpfA4MZ2wIAYcHL1DZs3EbuEhyqK/LWVQXKAt7aWc96FHNVusBLvHG64y8Ga
+SMoxdye6S0ZMoVpUPXPUjfovc7b1V6nd+TZ+ljTScrLguPf/sLhsfLeWtVRxxloB
+dh3fAoGBAJzencX7MT0hM8NgnHkHQ8A50rMcumZ/XJODfmB2NyIv3sZDcLqtNZ8c
+Sr6j0AYR8UCuMcRID9W6k7EKET/YmyIPq0KbFWwN0Ek2c2Lwjn0BMWwzl7pn76zN
+KLAAxQDdTHyaKL/20NiFl1HetjgsUjrQlTWvBQscdfnyG5UvEyVZ
+-----END RSA PRIVATE KEY-----
+EOF
+cat << EOF > vcap_key.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA1rdlVZK9op53kB5y7C0pfemxgBGhU7Lj0oRaNxh0RTkMYWb6FWZN5gjE1mD2MLlKxLb/GZSjGuLNjcPNVHAv+o6A05+mA44EPkdKzJpk3iwyB+vF2uMFJdV+kly7QTLzSP42oZ1kTNZT6I0Otyu1S6jKnMPEYJoKmHns1pv4X4ahQPqVa83dzjqlZVSL3HDxceJGnlCtp8b6YnO0A+/Lr6RpRIcce2RshrMN0KcKZ3rkaTfupWka4M0lMecwlNNUjhOj2zPJWyuRobcsWzgQ1890jypKV94NEyXn53Nld4HR3TfFpsMqNv5DhzmAMnwgla2gUBf3/v35KMVKRn6boQ== vcap@18jlra8ejk2
+EOF
+mv vcap_key* $BUILD_DIR
 exit 0
