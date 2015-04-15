@@ -284,4 +284,11 @@ cat << EOF > vcap_key.pub
 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA1rdlVZK9op53kB5y7C0pfemxgBGhU7Lj0oRaNxh0RTkMYWb6FWZN5gjE1mD2MLlKxLb/GZSjGuLNjcPNVHAv+o6A05+mA44EPkdKzJpk3iwyB+vF2uMFJdV+kly7QTLzSP42oZ1kTNZT6I0Otyu1S6jKnMPEYJoKmHns1pv4X4ahQPqVa83dzjqlZVSL3HDxceJGnlCtp8b6YnO0A+/Lr6RpRIcce2RshrMN0KcKZ3rkaTfupWka4M0lMecwlNNUjhOj2zPJWyuRobcsWzgQ1890jypKV94NEyXn53Nld4HR3TfFpsMqNv5DhzmAMnwgla2gUBf3/v35KMVKRn6boQ== vcap@18jlra8ejk2
 EOF
 
+cd $BUILD_DIR
+cat << EOF > start.sh
+sshfs -o sshfs_debug -o  IdentityFile=/home/vcap/app/vcap_key ubuntu@10.64.12.111:/home/ubuntu/alfresco_shared_fs $PWD/alfresco_shared_fs/
+/home/vcap/app/jre/bin/java -Dhttp.port="\$PORT" -Djava.util.logging.config.file=/home/vcap/app/tomcat/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djava.endorsed.dirs=/home/vcap/app/tomcat/endorsed -classpath /home/vcap/app/tomcat/bin/bootstrap.jar:/home/vcap/app/tomcat/bin/tomcat-juli.jar -Dcatalina.base=/home/vcap/app/tomcat -Dcatalina.home=/home/vcap/app/tomcat -Djava.io.tmpdir=/home/vcap/app/tomcat/temp org.apache.catalina.startup.Bootstrap start
+EOF
+
+
 exit 0
