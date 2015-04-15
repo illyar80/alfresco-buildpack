@@ -295,4 +295,6 @@ EOF
 
 chmod +x start.sh
 
+mkdir $BUILD_DIR/alfresco_shared_fs
+
 exit 0
